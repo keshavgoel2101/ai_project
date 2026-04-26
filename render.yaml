@@ -1,0 +1,27 @@
+services:
+  # Backend Service (Python/FastAPI)
+  - type: web
+    name: rag-cold-case-backend
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn api:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: GOOGLE_API_KEY
+        sync: false  # You will need to enter this in the Render Dashboard
+      - key: PORT
+        value: 10000
+
+  # Frontend Service (React/Vite)
+  - type: static
+    name: rag-cold-case-frontend
+    env: static
+    buildCommand: cd frontend && npm install && npm run build
+    publishDir: frontend/dist
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          type: web
+          name: rag-cold-case-backend
+          property: url

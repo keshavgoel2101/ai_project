@@ -1,0 +1,5 @@
+Patrol Officer: Jenkins
+Shift: 8:00 PM - 4:00 AM
+Observation 21:15: Responded to a call about a suspicious vehicle. Found a silver sedan with license plate BGT-442 driving erratically near the warehouse district. 
+Observation 21:30: Lost sight of the vehicle near 5th and Main. 
+Note: The vehicle had a broken tail light on the passenger side.
